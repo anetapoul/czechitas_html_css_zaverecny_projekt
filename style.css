@@ -355,15 +355,9 @@ footer ul li {
 
 footer ul li:last-of-type {
   margin-right: 0;
-  border: 1px solid red;
 }
 
-.footer__right {
-  border: 1px solid red;
-}
-.footer__left {
-  border: 1px solid red;
-}
+
 
 @media (min-width: 768px) {
   footer .container {
