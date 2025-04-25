@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  
 }
 
 *,
@@ -20,11 +21,9 @@ html {
   --color-footer-bg: #2c2f24;
 
   --radius: 12px;
-
 }
 
 /* fonts */
-
 body {
   font-family: 'DM Sans', sans-serif;
   font-size: 1.125rem;
@@ -34,7 +33,7 @@ body {
 
 h1,
 h2 {
-  font-family: 'DM Serif Display', serif;
+  font-family: 'Playfair Display', serif;
 }
 
 h1 {
@@ -50,14 +49,41 @@ h2 {
 }
 
 h3 {
+  font-family: 'DM Sans', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 1.2;
 }
 
+/* Velikost nadpisů tablet */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+/* Velikost nadpisů desktop */
+@media (min-width: 1100px) {
+  h1 {
+    font-size: 5rem;
+  }
+  h2 {
+    font-size: 3.5rem;
+  }
+}
+
 section,
 footer {
   padding: 50px 0 50px 0;
+}
+@media (min-width: 768px) {
+  section,
+  footer {
+    padding: 80px 0 80px 0;
+  }
 }
 
 .container {
@@ -82,7 +108,13 @@ footer {
   background: var(--color-primary);
   color: white;
   border-radius: 100vw;
+}
 
+@media (min-width: 768px) {
+  .button {
+    padding: 20px 40px;
+    font-size: 1.125rem;
+  }
 }
 
 .button:hover {
@@ -92,7 +124,6 @@ footer {
 /* header */
 header {
   padding: 20px 0;
-  /* background: red; */
 }
 
 header .container {
@@ -102,34 +133,37 @@ header .container {
   flex-direction: column;
 }
 
-.logo {
+header .container .logo {
   display: block;
   margin-bottom: 10px;
   height: 35px;
 }
 
-.nav__link {
-  display: inline-block;
+header .container nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+} 
+
+header .container nav .nav__link {
+  display: block;
+  white-space: nowrap;
   padding: 10px 15px;
   font-size: 1.25rem;
   font-weight: 500;
-  color: var(--color-secondary-dark);
   text-decoration: none;
+  color: var(--color-secondary-dark);
   border-radius: 100vw;
-  /* border: 1px solid green; */
 }
 
-.nav__link:hover {
+header .container nav .nav__link:hover {
   background: var(--color-secondary-bright);
 }
 
 /* tablet */
 @media (min-width: 768px) {
-  header {
-    /* background: green;*/
-  }
-
-  .nav__link {
+  
+  header .container nav .nav__link {
     padding: 10px 20px;
   }
 
@@ -140,40 +174,38 @@ header .container {
     flex-direction: row;
   }
 
-  .logo {
+  header .container .logo {
     margin-bottom: 0;
   }
 }
 
 /* desktop */
 @media (min-width: 1100px) {
-  header {
-    /* background: blue; */
-  }
-
-  .logo {
+  
+  header .container .logo {
     height: 45px;
   }
 
-  .nav__link {
+  header .container nav .nav__link {
     padding: 15px 30px;
   }
 }
 
+
 /* sekce hero */
 .hero {
   background-image: url('./images/hero.jpg');
+  background-position:  center;
   background-size: cover;
   padding: 100px 0;
   text-align: center;
-
 }
 
-.hero h1 {
+.hero .container h1 {
   margin: 0px;
 }
 
-.hero p {
+.hero .container p {
   font-size: 1.125rem;
   margin: 30px 0;
 }
@@ -183,7 +215,7 @@ header .container {
     padding: 120px 0;
   }
 
-  .hero p {
+  .hero .container p {
     font-size: 1.25rem;
   }
 }
@@ -194,57 +226,51 @@ header .container {
   }
 }
 
-
 /* jidelni listek */
-
 .jidelni-listek h2 {
   margin: 0px;
   text-align: center;
+  margin-bottom: 40px;    
 }
 
-.jidelni-listek .boxes {
+.jidelni-listek .karty {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
+  align-items: stretch; 
   flex-direction: column;
   gap: 30px;
-  margin-top: 40px;
-  
 }
 
-.jidelni-listek article {
-  border-radius: var(--radius);
+.jidelni-listek .karty article {
   padding: 30px 20px;
   text-align: center;
   border: 1px solid var(--color-secondary-bright);
   border-radius: var(--radius);
-  font-weight: 500;
-
 }
 
-.jidelni-listek h3 {
+.jidelni-listek .karty h3 {
   color: var(--color-secondary);
   margin: 20px 0;
 }
 
-.jidelni-listek p {
+.jidelni-listek .karty article p {
   margin: 20px 0;
 }
 
-.jidelni-listek a {
+.jidelni-listek .karty article a {
   text-decoration: none;
   color: var(--color-primary);
 }
 
-.jidelni-listek a:hover {
+.jidelni-listek .karty article a:hover {
   color: var(--color-primary-dark);
   text-decoration: underline;
 }
 
 /* tablet */
 @media (min-width: 768px) {
-  .jidelni-listek .boxes {
+  .jidelni-listek .karty {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -255,12 +281,8 @@ header .container {
 }
 /* desktop */
 @media (min-width: 1100px) {
-  .jidelni-listek .boxes {
+  .jidelni-listek .karty {
    flex-wrap: nowrap;
-  }
-
-  .jidelni-listek article {
-    width: calc((100% - 30px) / 4);
   }
 }
 
@@ -276,16 +298,17 @@ header .container {
   align-items: center;
   gap: 60px;
 }
-.rozvoz__text, .rozvoz__image {
+
+.rozvoz .container .obrazek, .rozvoz .container .info {
   flex: 1;
 }
 
-.rozvoz__image picture {
+.rozvoz .container .obrazek picture {
   display: block;
   margin: 0 auto;
   max-width: 100%;
 }
-.rozvoz__image img {
+.rozvoz .container .obrazek img {
   display: block;
   height: auto;
   border-radius: var(--radius);
@@ -294,15 +317,19 @@ header .container {
 @media (min-width: 768px) {
   .rozvoz .container {
     flex-direction: row;
-
   }
 }
 
-.rozvoz__text h2 {
+.rozvoz .container .info h2 {
   margin: 0px;
 }
 
-.rozvoz__text ul li {
+.rozvoz .container .info ul {
+  padding: 0;
+  margin: 40px 0;
+}
+
+.rozvoz .container .info ul li {
   display: flex;
   list-style: none;
   font-size: 1.25rem;
@@ -312,20 +339,19 @@ header .container {
   gap: 10px;
   align-items: center;
 }
-.rozvoz__text ul {
-  padding: 0;
-  margin: 40px 0;
-}
 
-.rozvoz__text p {
+.rozvoz .container .info p {
   margin: 40px 0;
 }
 
 /* footer */
-
-
 footer {
   background: var(--color-footer-bg);
+  color: var(--color-secondary-light);
+}
+
+.link--footer {
+  color: var(--color-secondary-bright);
 }
 
 footer .container {
@@ -334,30 +360,20 @@ footer .container {
   flex-direction: column;
 }
 
-footer p {
-  color: var(--color-secondary-light);
-}
-.link--footer {
-  color: var(--color-secondary-bright);
-}
-
 footer ul {
   margin: 0;
   padding: 0;
 }
 
-footer ul li {
+footer .menu-a-copyright ul li {
   display: inline-block;
   margin-right: 20px;
-
   list-style: none;
 }
 
-footer ul li:last-of-type {
+footer .menu-a-copyright ul li:last-of-type {
   margin-right: 0;
 }
-
-
 
 @media (min-width: 768px) {
   footer .container {
@@ -365,8 +381,7 @@ footer ul li:last-of-type {
     justify-content: space-between;
     align-items: flex-start;
   }
-
-  }
+}
 
 
 
